@@ -4,6 +4,8 @@ import json
 from time import sleep
 import redis
 
+
+
 def get_route(respond):
     route = re.match(r'GET(.*?)[A-Z]', respond).group(1)
     return route.strip()
@@ -32,7 +34,14 @@ class Handler:
                 print("--> favicon socket")
                 return self.conn.send(data)
 
-            self.get_client()
+
+            try:
+                self.get_client()
+            except redis.exceptions.ConnectionError as e:
+                print(f"Error: {e}")
+                self.conn.send("Error: Connection Error".encode())
+                return
+            
             sleep(3) # imaginary delay
             message = self.display() if not key else self.display_item(key)
 
