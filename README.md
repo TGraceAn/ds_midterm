@@ -52,17 +52,17 @@ python main.py
 
 This implements our load balancer.
 
-To get the data (read-only). On your browser open: localhost:<Port of Load Balancer>
+To get the data (read-only). On your browser open: localhost:(Port of Load Balancer)
 
 You can also view by key and value:
 
-For example open: localhost:<Port of Load Balancer>/actor:
+For example open: localhost:(Port of Load Balancer)/actor:
 
 And so on.
 
 If it doesn’t work, you can mimic it on another terminal by:
 ```shell
-curl --http0.9 http://127.0.0.1:<Port of Load Balancer>
+curl --http0.9 http://127.0.0.1:(Port of Load Balancer)
 ```
 
 Example:
